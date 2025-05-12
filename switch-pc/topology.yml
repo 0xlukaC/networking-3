@@ -1,0 +1,19 @@
+name: switch-pc
+topology:
+  nodes:
+    switch:
+      kind: linux
+      image: frrouting/frr:latest
+      exec:
+        - /config/config.switch.sh
+      binds:
+        - ./config:/config
+
+    workstation:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - /config:/workstation.sh
+
+  links:
+    - endpoints: ["switch:eth1", "workstation:eth1"]

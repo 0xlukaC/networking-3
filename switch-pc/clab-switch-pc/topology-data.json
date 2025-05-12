@@ -1,0 +1,100 @@
+{
+  "name": "switch-pc",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-7bc030b1761c",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "mtu": 1500,
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "switch": {
+      "index": "0",
+      "shortname": "switch",
+      "longname": "clab-switch-pc-switch",
+      "fqdn": "switch.switch-pc.io",
+      "group": "",
+      "labdir": "/home/luka/clab/switch-pc/clab-switch-pc/switch",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-7bc030b1761c",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/luka/clab/switch-pc/clab-switch-pc/switch",
+        "clab-node-longname": "clab-switch-pc-switch",
+        "clab-node-name": "switch",
+        "clab-node-type": "",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/switch-pc/topology.yml",
+        "containerlab": "switch-pc"
+      },
+      "port-bindings": [
+      ]
+    },
+    "workstation": {
+      "index": "1",
+      "shortname": "workstation",
+      "longname": "clab-switch-pc-workstation",
+      "fqdn": "workstation.switch-pc.io",
+      "group": "",
+      "labdir": "/home/luka/clab/switch-pc/clab-switch-pc/workstation",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-7bc030b1761c",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/luka/clab/switch-pc/clab-switch-pc/workstation",
+        "clab-node-longname": "clab-switch-pc-workstation",
+        "clab-node-name": "workstation",
+        "clab-node-type": "",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/switch-pc/topology.yml",
+        "containerlab": "switch-pc"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "switch",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:4b:45:29",
+        "peer": "z"
+      },
+      "z": {
+        "node": "workstation",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:cb:e8:d3",
+        "peer": "a"
+      }
+    }
+  ]
+}

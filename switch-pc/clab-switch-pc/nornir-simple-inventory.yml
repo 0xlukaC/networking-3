@@ -1,0 +1,11 @@
+---
+switch:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+workstation:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
