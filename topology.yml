@@ -17,6 +17,7 @@ topology:
             image: alpine:latest
             binds:
                 - ./config/webserver1.sh:/config/webserver1.sh
+                - ./config/web.c:/config/web.c
             cmd: sh /config/webserver1.sh
             ports:
                 - 8081:80 # Expose port 80 of webserver 1 to port 8081 on the host
@@ -25,6 +26,7 @@ topology:
             image: alpine:latest
             binds:
                 - ./config/webserver2.sh:/config/webserver2.sh
+                - ./config/web.c:/config/web.c
             cmd: sh /config/webserver2.sh
             ports:
                 - 8082:80 # Expose port 80 of webserver 2 to port 8082 on the host
