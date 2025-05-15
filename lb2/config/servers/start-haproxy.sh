@@ -12,6 +12,6 @@ fi
 # Start haproxy in the foreground
 haproxy -f /etc/haproxy/haproxy.cfg
 
-tail -f /dev/null
+# tail -f /dev/null
 
 # sh -c "apk add haproxy && haproxy -f /etc/haproxy/haproxy.cfg"
