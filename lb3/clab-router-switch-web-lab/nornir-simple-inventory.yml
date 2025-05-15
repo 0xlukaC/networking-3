@@ -1,0 +1,26 @@
+---
+loadbalancer:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.4
+router:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
+switch:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+web1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.6
+web2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2

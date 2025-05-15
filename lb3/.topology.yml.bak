@@ -1,0 +1,48 @@
+name: distributed-webserver
+
+topology:
+    nodes:
+        switch:
+            kind: linux
+            image: frrouting/frr:latest
+            binds:
+                - ./config/switches:/etc/frr
+            cmd: sh /etc/frr/config.switch.sh
+
+        web1: # webserver 1
+            kind: linux
+            image: alpine:latest
+            binds:
+                - ./config/webserver.sh:/config/webserver1.sh
+                - ./config/web.c:/config/web.c # changed from web.c
+                - ./config/webserver.h:/config/webserver.h
+                - ./config/index.html:/config/index.html
+            cmd: sh /config/webserver1.sh
+
+        web2: # webserver 2
+            kind: linux
+            image: alpine:latest
+            binds:
+                - ./config/webserver.sh:/config/webserver2.sh
+                - ./config/web.c:/config/web.c # changed from web.c
+                - ./config/webserver.h:/config/webserver.h
+                - ./config/index.html:/config/index.html
+            cmd: sh /config/webserver2.sh
+
+        lb: # load balancer
+            kind: linux
+            image: alpine:latest
+            binds:
+                - ./config/haproxy.cfg:/etc/haproxy/haproxy.cfg
+                - ./config/start-haproxy.sh:/start-haproxy.sh
+            ports:
+                - 8080:80 # Expose port 80 of the load balancer to port 8080 on the host
+            cmd:
+                sh /start-haproxy.sh
+                # - nginx -g 'daemon on;' # origonally off
+
+    links:
+        - endpoints: ["lb:eth1", "switch:eth1"]
+        - endpoints: ["web1:eth1", "switch:eth2"]
+        - endpoints: ["web2:eth1", "switch:eth3"]
+        # - endpoints: ["pc1:eth1", "switch:eth4"]
