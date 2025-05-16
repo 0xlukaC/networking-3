@@ -72,5 +72,5 @@ ip -br link
 
 # Replace shell with daemon monitor to keep container alive
 /usr/lib/frr/watchfrr zebra ospfd bgpd
-# removed exec       -d 
+# removed exec       -d because it was causing issues with the container
 # exec replaces the shell with watchfrr, so if watchfrr exits, the container exits.

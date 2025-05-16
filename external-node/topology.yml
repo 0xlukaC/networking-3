@@ -17,7 +17,7 @@ topology:
                 - ./config/config.external-node2.sh:/config/start.sh
             cmd: sh /config/start.sh 10.13.37.1 24
             ports:
-                - 2222:22
+                - 2222:22 # binds port 22 of the external node to port 2222 of the host
 
     links:
         - endpoints: ["external:eth1", "switch-1:eth1"]

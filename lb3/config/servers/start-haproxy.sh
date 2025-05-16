@@ -4,6 +4,7 @@ set -eux
 # Install haproxy if not already installed
 apk add --no-cache haproxy
 
+# assign an IP address to eth1 for internal network communication
 ip addr add 10.10.10.100/24 dev eth1 || true
 ip link set eth1 up
 

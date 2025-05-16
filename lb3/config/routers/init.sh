@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eux
-
+# Not used
 # Set hostname
 vtysh -c "configure terminal" \
       -c "hostname router" \

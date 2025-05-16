@@ -7,7 +7,7 @@ MY_ETHERNET=eth1
 
 echo "configure $MY_USERNAME"
 adduser -D -H "$MY_USERNAME"
-echo "$MY_USERNAME:$MY_USERNAME" | chpasswd
+echo "$MY_USERNAME:$MY_USERNAME" | chpasswd # password is the same as user
 
 mkdir /home/$MY_USERNAME
 chown root:$MY_USERNAME /home/$MY_USERNAME

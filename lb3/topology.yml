@@ -29,17 +29,17 @@ topology:
             kind: linux
             image: alpine:latest
             binds:
-                - ./config/servers/nginx.conf:/etc/nginx/nginx.conf
+                - ./config/servers/nginx1.conf:/etc/nginx/nginx.conf
                 - ./config/servers/config.web1.sh:/config/config.web.sh
 
-            # Installs nginx and runs it in the foreground to keep the container alive
+            # installs nginx and runs it in the foreground to keep the container alive
             cmd: sh /config/config.web.sh # sh -c "apk add nginx && sh /config/config.web.sh"
 
         web2:
             kind: linux
             image: alpine:latest
             binds:
-                - ./config/servers/nginx.conf:/etc/nginx/nginx.conf # ./config/servers/nginx/
+                - ./config/servers/nginx2.conf:/etc/nginx/nginx.conf # ./config/servers/nginx/
                 - ./config/servers/config.web2.sh:/config/config.web.sh
 
             # Installs nginx and runs it in the foreground to keep the container alive

@@ -1,6 +1,12 @@
 #!/bin/sh
 
-# original script from github
+###
+
+
+### Original/copied script from github
+### Not used
+
+###
 set -eu
 
 IP_ADDR="$1"
