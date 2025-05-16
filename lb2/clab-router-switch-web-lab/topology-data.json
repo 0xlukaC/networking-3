@@ -6,7 +6,7 @@
       "prefix": "clab",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-38a036c50c8c",
+        "bridge": "br-9eb79659333c",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -16,7 +16,7 @@
       }
     }
   },
-  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDrKqJzhta4yb+aEi7CEtF3tyt77eCX+o2nH2CcQwWX"],
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL3/3U4yv/j7f41TKygSws1g+ox7T2ZK/gXrfgtEzV72"],
   "nodes": {
     "loadbalancer": {
       "index": "0",
@@ -24,26 +24,26 @@
       "longname": "clab-router-switch-web-lab-loadbalancer",
       "fqdn": "loadbalancer.router-switch-web-lab.io",
       "group": "",
-      "labdir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/loadbalancer",
+      "labdir": "/home/luka/clab/lb2/clab-router-switch-web-lab/loadbalancer",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-38a036c50c8c",
+        "clab-mgmt-net-bridge": "br-9eb79659333c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/loadbalancer",
+        "clab-node-lab-dir": "/home/luka/clab/lb2/clab-router-switch-web-lab/loadbalancer",
         "clab-node-longname": "clab-router-switch-web-lab-loadbalancer",
         "clab-node-name": "loadbalancer",
         "clab-node-type": "",
-        "clab-owner": "lukachalker",
-        "clab-topo-file": "/home/lukachalker/networking-3/lb2/topology.yml",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/lb2/topology.yml",
         "containerlab": "router-switch-web-lab"
       },
       "port-bindings": [
@@ -67,26 +67,26 @@
       "longname": "clab-router-switch-web-lab-router",
       "fqdn": "router.router-switch-web-lab.io",
       "group": "",
-      "labdir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/router",
+      "labdir": "/home/luka/clab/lb2/clab-router-switch-web-lab/router",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-38a036c50c8c",
+        "clab-mgmt-net-bridge": "br-9eb79659333c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/router",
+        "clab-node-lab-dir": "/home/luka/clab/lb2/clab-router-switch-web-lab/router",
         "clab-node-longname": "clab-router-switch-web-lab-router",
         "clab-node-name": "router",
         "clab-node-type": "",
-        "clab-owner": "lukachalker",
-        "clab-topo-file": "/home/lukachalker/networking-3/lb2/topology.yml",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/lb2/topology.yml",
         "containerlab": "router-switch-web-lab"
       },
       "port-bindings": [
@@ -98,26 +98,26 @@
       "longname": "clab-router-switch-web-lab-switch",
       "fqdn": "switch.router-switch-web-lab.io",
       "group": "",
-      "labdir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/switch",
+      "labdir": "/home/luka/clab/lb2/clab-router-switch-web-lab/switch",
       "kind": "linux",
       "image": "frrouting/frr:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.5",
-      "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::5",
-      "mgmt-ipv6-prefix-length": 64,
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-38a036c50c8c",
+        "clab-mgmt-net-bridge": "br-9eb79659333c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/switch",
+        "clab-node-lab-dir": "/home/luka/clab/lb2/clab-router-switch-web-lab/switch",
         "clab-node-longname": "clab-router-switch-web-lab-switch",
         "clab-node-name": "switch",
         "clab-node-type": "",
-        "clab-owner": "lukachalker",
-        "clab-topo-file": "/home/lukachalker/networking-3/lb2/topology.yml",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/lb2/topology.yml",
         "containerlab": "router-switch-web-lab"
       },
       "port-bindings": [
@@ -129,7 +129,7 @@
       "longname": "clab-router-switch-web-lab-web1",
       "fqdn": "web1.router-switch-web-lab.io",
       "group": "",
-      "labdir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/web1",
+      "labdir": "/home/luka/clab/lb2/clab-router-switch-web-lab/web1",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
@@ -140,15 +140,15 @@
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-38a036c50c8c",
+        "clab-mgmt-net-bridge": "br-9eb79659333c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/web1",
+        "clab-node-lab-dir": "/home/luka/clab/lb2/clab-router-switch-web-lab/web1",
         "clab-node-longname": "clab-router-switch-web-lab-web1",
         "clab-node-name": "web1",
         "clab-node-type": "",
-        "clab-owner": "lukachalker",
-        "clab-topo-file": "/home/lukachalker/networking-3/lb2/topology.yml",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/lb2/topology.yml",
         "containerlab": "router-switch-web-lab"
       },
       "port-bindings": [
@@ -160,26 +160,26 @@
       "longname": "clab-router-switch-web-lab-web2",
       "fqdn": "web2.router-switch-web-lab.io",
       "group": "",
-      "labdir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/web2",
+      "labdir": "/home/luka/clab/lb2/clab-router-switch-web-lab/web2",
       "kind": "linux",
       "image": "alpine:latest",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-38a036c50c8c",
+        "clab-mgmt-net-bridge": "br-9eb79659333c",
         "clab-node-group": "",
         "clab-node-kind": "linux",
-        "clab-node-lab-dir": "/home/lukachalker/networking-3/lb2/clab-router-switch-web-lab/web2",
+        "clab-node-lab-dir": "/home/luka/clab/lb2/clab-router-switch-web-lab/web2",
         "clab-node-longname": "clab-router-switch-web-lab-web2",
         "clab-node-name": "web2",
         "clab-node-type": "",
-        "clab-owner": "lukachalker",
-        "clab-topo-file": "/home/lukachalker/networking-3/lb2/topology.yml",
+        "clab-owner": "luka",
+        "clab-topo-file": "/home/luka/clab/lb2/topology.yml",
         "containerlab": "router-switch-web-lab"
       },
       "port-bindings": [
@@ -191,13 +191,13 @@
       "a": {
         "node": "router",
         "interface": "eth1",
-        "mac": "aa:c1:ab:45:b2:8f",
+        "mac": "aa:c1:ab:61:f0:34",
         "peer": "z"
       },
       "z": {
         "node": "switch",
         "interface": "eth1",
-        "mac": "aa:c1:ab:d6:cc:77",
+        "mac": "aa:c1:ab:b4:98:d0",
         "peer": "a"
       }
     },
@@ -205,13 +205,13 @@
       "a": {
         "node": "switch",
         "interface": "eth2",
-        "mac": "aa:c1:ab:ea:93:48",
+        "mac": "aa:c1:ab:c5:7d:65",
         "peer": "z"
       },
       "z": {
         "node": "web1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:a2:28:d1",
+        "mac": "aa:c1:ab:e7:d6:b0",
         "peer": "a"
       }
     },
@@ -219,13 +219,13 @@
       "a": {
         "node": "switch",
         "interface": "eth3",
-        "mac": "aa:c1:ab:ea:62:01",
+        "mac": "aa:c1:ab:ca:3c:74",
         "peer": "z"
       },
       "z": {
         "node": "web2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:c2:95:95",
+        "mac": "aa:c1:ab:8e:e2:08",
         "peer": "a"
       }
     },
@@ -233,13 +233,13 @@
       "a": {
         "node": "switch",
         "interface": "eth4",
-        "mac": "aa:c1:ab:54:13:1b",
+        "mac": "aa:c1:ab:8b:ca:92",
         "peer": "z"
       },
       "z": {
         "node": "loadbalancer",
         "interface": "eth1",
-        "mac": "aa:c1:ab:0b:c9:f2",
+        "mac": "aa:c1:ab:3d:e7:fa",
         "peer": "a"
       }
     }
