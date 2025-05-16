@@ -1,48 +1,62 @@
-name: distributed-webserver
+name: router-switch-web-lab
 
 topology:
     nodes:
+        router:
+            kind: linux
+            image: frrouting/frr:latest
+            binds:
+                - ./config/routers/init.sh:/config/init.sh
+                - ./config/routers/frr.conf:/etc/frr/frr.conf
+            exec:
+                #- sh /config/init.sh
+                - /usr/lib/frr/frrinit.sh start
+            # binds:
+            #       - ./routers/frr.conf:/etc/frr/frr.conf
+            # cmd: /usr/lib/frr/docker-start.sh
+
         switch:
             kind: linux
             image: frrouting/frr:latest
             binds:
                 - ./config/switches:/etc/frr
-            cmd: sh /etc/frr/config.switch.sh
+            cmd: sh /etc/frr/config.switch2.sh
+            # binds:
+            #     - ./switches:/etc/frr
+            # cmd: sh /etc/frr/config.switch.sh
 
-        web1: # webserver 1
+        web1:
             kind: linux
             image: alpine:latest
             binds:
-                - ./config/webserver.sh:/config/webserver1.sh
-                - ./config/web.c:/config/web.c # changed from web.c
-                - ./config/webserver.h:/config/webserver.h
-                - ./config/index.html:/config/index.html
-            cmd: sh /config/webserver1.sh
+                - ./config/servers/nginx.conf:/etc/nginx/nginx.conf
+                - ./config/servers/config.web1.sh:/config/config.web.sh
 
-        web2: # webserver 2
+            # Installs nginx and runs it in the foreground to keep the container alive
+            cmd: sh /config/config.web.sh # sh -c "apk add nginx && sh /config/config.web.sh"
+
+        web2:
             kind: linux
             image: alpine:latest
             binds:
-                - ./config/webserver.sh:/config/webserver2.sh
-                - ./config/web.c:/config/web.c # changed from web.c
-                - ./config/webserver.h:/config/webserver.h
-                - ./config/index.html:/config/index.html
-            cmd: sh /config/webserver2.sh
+                - ./config/servers/nginx.conf:/etc/nginx/nginx.conf # ./config/servers/nginx/
+                - ./config/servers/config.web2.sh:/config/config.web.sh
 
-        lb: # load balancer
+            # Installs nginx and runs it in the foreground to keep the container alive
+            cmd: sh /config/config.web.sh
+
+        loadbalancer:
             kind: linux
             image: alpine:latest
             binds:
-                - ./config/haproxy.cfg:/etc/haproxy/haproxy.cfg
-                - ./config/start-haproxy.sh:/start-haproxy.sh
+                - ./config/servers/haproxy.cfg:/etc/haproxy/haproxy.cfg # ./config/servers/loadbalancer
+                - ./config/servers/start-haproxy.sh:/start-haproxy.sh
+            cmd: sh /start-haproxy.sh
             ports:
                 - 8080:80 # Expose port 80 of the load balancer to port 8080 on the host
-            cmd:
-                sh /start-haproxy.sh
-                # - nginx -g 'daemon on;' # origonally off
 
     links:
-        - endpoints: ["lb:eth1", "switch:eth1"]
-        - endpoints: ["web1:eth1", "switch:eth2"]
-        - endpoints: ["web2:eth1", "switch:eth3"]
-        # - endpoints: ["pc1:eth1", "switch:eth4"]
+        - endpoints: ["router:eth1", "switch:eth1"]
+        - endpoints: ["switch:eth2", "web1:eth1"]
+        - endpoints: ["switch:eth3", "web2:eth1"]
+        - endpoints: ["switch:eth4", "loadbalancer:eth1"]

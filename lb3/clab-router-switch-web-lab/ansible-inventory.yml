@@ -8,12 +8,12 @@ all:
     linux:
       hosts:
         clab-router-switch-web-lab-loadbalancer:
-          ansible_host: 172.20.20.4
-        clab-router-switch-web-lab-router:
           ansible_host: 172.20.20.3
+        clab-router-switch-web-lab-router:
+          ansible_host: 172.20.20.4
         clab-router-switch-web-lab-switch:
-          ansible_host: 172.20.20.5
-        clab-router-switch-web-lab-web1:
-          ansible_host: 172.20.20.6
-        clab-router-switch-web-lab-web2:
           ansible_host: 172.20.20.2
+        clab-router-switch-web-lab-web1:
+          ansible_host: 172.20.20.5
+        clab-router-switch-web-lab-web2:
+          ansible_host: 172.20.20.6
